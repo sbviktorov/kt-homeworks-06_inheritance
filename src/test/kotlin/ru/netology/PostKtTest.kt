@@ -4,6 +4,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import ru.netology.objects.*
+import ru.netology.objects.attachments.*
 import java.util.*
 
 class PostKtTest {
@@ -17,7 +18,13 @@ class PostKtTest {
         val unexpectedPostId = 0
         val expectedPostId = 1
         val post1 = WallService.add(Post())
-        val post2 = WallService.add(Post(id = 0, text = "Пост 2"))
+        val post2 = WallService.add(Post(
+            id = 0,
+            text = "Пост 2",
+            attachment = arrayOf(NoteAttachment(note = Note(1,1,"first note", "it's my 1st note",
+                Date().time)),
+            PhotoAttachment(photo = Photo(1,1,2,"description of photo", 640, 480)),
+            GraffitiAttachment(graffiti = Graffiti(1,1,"graffiti preview","full image")))))
         val post3 = WallService.add(
             Post(
                 id = 9999,
@@ -36,9 +43,22 @@ class PostKtTest {
                 views = Views(458),
                 postType = "copy",
                 postSource = PostSource(type = "widget", platform = "android", data = "poll", url = "vk.com"),
-                geo = Geo(type = "населенный пункт", coordinates = "координаты", Place(id = 1, title = "город",
-                    latitude = 1, longitude = 0, created = (Date().time/1000)-10000, icon = "url", checkins = 1,
-                    updated = Date().time/1000, type = 1, country = 7, city = 3412, address = "street, house")),
+                attachment = arrayOf(
+                    AudioAttachment(
+                        audio = Audio(
+                            1, 1, "name", "title",
+                            186, "url of song"
+                        )
+                    ),
+                    VideoAttachment(video = Video(1, 1, "title", "description of video", 3600))
+                ),
+                geo = Geo(
+                    type = "населенный пункт", coordinates = "координаты", Place(
+                        id = 1, title = "город",
+                        latitude = 1, longitude = 0, created = (Date().time / 1000) - 10000, icon = "url", checkins = 1,
+                        updated = Date().time / 1000, type = 1, country = 7, city = 3412, address = "street, house"
+                    )
+                ),
                 signerId = 1888,
                 copyHistory = null,
                 canPin = true,

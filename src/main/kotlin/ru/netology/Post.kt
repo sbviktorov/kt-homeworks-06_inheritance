@@ -21,6 +21,7 @@ data class Post(
     val views: Views = Views(),
     val postType: String = "post",
     val postSource: PostSource = PostSource(),
+    val attachment: Array<Attachment>? = null,
     val geo: Geo = Geo(),
     val signerId: Int = 0,
     val copyHistory: Array<Post>? = null,
@@ -33,5 +34,7 @@ data class Post(
     val donut: Donut = Donut(),
     val postponedId: Int = 0
 
+) {
 
-)
+}
+
