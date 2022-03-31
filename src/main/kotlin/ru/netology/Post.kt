@@ -1,6 +1,7 @@
 package ru.netology
 
 import ru.netology.objects.*
+import ru.netology.objects.attachments.Attachment
 import java.util.*
 
 
