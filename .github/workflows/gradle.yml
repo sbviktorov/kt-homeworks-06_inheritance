@@ -2,9 +2,9 @@ name: Kotlin CI with Gradle
 
 on:
   push:
-    branches: [ master, main, Attachment ]
+    branches: [ master, main, Attachment, Sealed ]
   pull_request:
-    branches: [ master, main, Attachment ]
+    branches: [ master, main, Attachment, Sealed ]
 
 jobs:
   build:
